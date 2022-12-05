@@ -5,11 +5,18 @@ using Unity.Netcode;
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1);
+    private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
+    public override void OnNetworkSpawn()
+    {
+        randomNumber.OnValueChanged += (int previousValue, int newValue) =>
+        {
+            Debug.Log(OwnerClientId + "; randomNumber:" + randomNumber.Value);
+        };
+    }
     private void Update()
     {
-        Debug.Log(OwnerClientId + "; randomNumber:" + randomNumber.Value);
+        
         if (!IsOwner) return;
 
         if (Input.GetKeyDown(KeyCode.T))
