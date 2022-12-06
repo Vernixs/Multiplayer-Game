@@ -3,29 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
+using TMPro;
 
 public class NetworkManagerUI : MonoBehaviour
 {
     [SerializeField] private Button ServerBtn;
     [SerializeField] private Button HostBtn;
     [SerializeField] private Button ClientBtn;
+    [SerializeField] private TextMeshProUGUI playersInGameText;
 
     private void Awake()
     {
-        ServerBtn.onClick.AddListener(() =>
-        {
-            Debug.Log("Pressed");
-            NetworkManager.Singleton.StartServer();
-        });
-        HostBtn.onClick.AddListener(() =>
-        {
-            Debug.Log("Pressed");
-            NetworkManager.Singleton.StartHost();
-        });
-        ClientBtn.onClick.AddListener(() =>
-        {
-            Debug.Log("Pressed");
-            NetworkManager.Singleton.StartClient();
-        });
+        Cursor.visible = true;
+    }
+
+    private void Update()
+    {
+        
+    }
+
+    private void Start()
+    {
+        
     }
 }
