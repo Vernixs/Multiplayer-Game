@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Unity.Netcode;
 
-public class NetworkManagerUI : NetworkBehaviour
+public class NetworkManagerUI : MonoBehaviour
 {
     [SerializeField] private Button ServerBtn;
     [SerializeField] private Button HostBtn;
@@ -12,41 +12,20 @@ public class NetworkManagerUI : NetworkBehaviour
 
     private void Awake()
     {
-        if(!IsOwner)
+        ServerBtn.onClick.AddListener(() =>
         {
-            return;
-        }
-        else
+            Debug.Log("Pressed");
+            NetworkManager.Singleton.StartServer();
+        });
+        HostBtn.onClick.AddListener(() =>
         {
-            ServerBtn.onClick.AddListener(() =>
-            {
-                Debug.Log("Pressed");
-                NetworkManager.Singleton.StartServer();
-            });
-        }
-
-        if (!IsOwner)
+            Debug.Log("Pressed");
+            NetworkManager.Singleton.StartHost();
+        });
+        ClientBtn.onClick.AddListener(() =>
         {
-            return;
-        }
-        else
-        {
-            ServerBtn.onClick.AddListener(() =>
-            {
-                Debug.Log("Pressed");
-                NetworkManager.Singleton.StartServer();
-            });
-        }
-        if (!IsOwner)
-        {
-            ClientBtn.onClick.AddListener(() =>
-            {
-                Debug.Log("Pressed");
-                NetworkManager.Singleton.StartClient();
-            });
-        }
-      
-       
-        
+            Debug.Log("Pressed");
+            NetworkManager.Singleton.StartClient();
+        });
     }
 }
