@@ -19,11 +19,43 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Update()
     {
-        playersInGameText.text = $"Players in game: {PlayersManager.Instance.PlayersInGame}";
+       playersInGameText.text = $"Players in game: {PlayersManager.Instance.PlayersInGame}";
     }
 
     private void Start()
     {
-        
+        HostBtn.onClick.AddListener(() =>
+            {
+                if(NetworkManager.Singleton.StartHost())
+                {
+                    
+                }
+                else
+                {
+
+                }
+            });
+        ServerBtn.onClick.AddListener(() =>
+        {
+            if (NetworkManager.Singleton.StartServer())
+            {
+
+            }
+            else
+            {
+
+            }
+        });
+        ClientBtn.onClick.AddListener(() =>
+        {
+            if (NetworkManager.Singleton.StartClient())
+            {
+
+            }
+            else
+            {
+
+            }
+        });
     }
 }
