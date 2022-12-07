@@ -19,7 +19,7 @@ public class NetworkManagerUI : MonoBehaviour
 
     private void Update()
     {
-        
+        playersInGameText.text = $"Players in game: {PlayersManager.Instance.PlayersInGame}";
     }
 
     private void Start()
