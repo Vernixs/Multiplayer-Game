@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Unity.Netcode;
-namespace VernarGames.Core.Singletons
+/*namespace VernarGames.Core.Singletons
 {
     public class Singleton<T> : NetworkBehaviour
         where T : Component
@@ -34,4 +34,4 @@ namespace VernarGames.Core.Singletons
     
     }
 }
-
+*/

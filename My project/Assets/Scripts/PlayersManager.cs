@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using VernarGames.Core.Singletons;
+
 using Unity.Netcode;
 
-public class PlayersManager : Singleton<PlayersManager>
+/*public class PlayersManager : Singleton<PlayersManager>
 {
     private NetworkVariable<int> playersInGame = new NetworkVariable<int>();
 
@@ -38,3 +38,4 @@ public class PlayersManager : Singleton<PlayersManager>
 
     
 }
+*/
