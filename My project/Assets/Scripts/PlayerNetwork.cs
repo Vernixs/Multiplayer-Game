@@ -5,8 +5,18 @@ using Unity.Netcode;
 
 public class PlayerNetwork : NetworkBehaviour
 {
-    private NetworkVariable<int> randomNumber = new NetworkVariable<int>(1, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
+    private Rigidbody _rb;
+    private Camera _cam;
+    private void Awake()
+    {
+        _rb = GetComponent<Rigidbody>();
+        _cam = Camera.main;
+    }
 
+    public override void OnNetworkSpawn()
+    {
+        if (!IsOwner) Destroy(this);
+    }
 
     private void Update()
     {
